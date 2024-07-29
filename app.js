@@ -1,3 +1,5 @@
+// import { collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+// import {  getFirestore  } from "./firebaseconfig.js";
 
 
 
@@ -22,7 +24,9 @@ function renderTodo(){
       <span>${item.Todo}</span>
     </div>
     <div class="col">
-        <button class="btn btn-danger">Delete</button> 
+        <button class="btn btn-success "><i class="fa-solid fa-pen "></i></button> 
+        <button class="btn btn-danger"><i class="fa-solid fa-trash icon"></i></button> 
+        <br>
         <br>
     </div>
   </div>
@@ -31,13 +35,20 @@ function renderTodo(){
   });
 }
 
-form.addEventListener('submit',(event)=>{
+form.addEventListener('submit', (event)=>{
  event.preventDefault();
- console.log(input1.value);
  arr.push({
   Todo : input1.value,
  })
- console.log(arr);
  renderTodo();
+//  try {
+//     const docRef = await addDoc(collection(db, "todo"), {
+//     todo : Todo.value,
+//     });
+//     todo.value = ';'
+//     console.log("Document written with ID: ", docRef.id);
+//   } catch (e) {
+//     console.error("Error adding document: ", e);
+//   }
  input1.value = ''
 })  
